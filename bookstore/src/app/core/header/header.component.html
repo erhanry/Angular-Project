@@ -1,1 +1,45 @@
-<p>header works!</p>
+<header class="mb-5">
+    <div id="user-details">
+        <div class="container">
+            <div class="row">
+                <div *ngIf="false" class="col text-center text-lg-right pr-6">Потребител: Тест</div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <img src="./assets/logo.png" alt="Book Store homepage" class="d-md-inline-block" />
+            </a>
+            <div class="navbar-buttons mr-auto">
+                <button type="button" class="btn btn-outline-secondary navbar-toggler">
+                    <i class="fa fa-align-justify"></i>
+                </button>
+            </div>
+            <div id="navigation" class="collapse navbar-collapse text-center">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link"><i class="fa fa-home"></i> Начало</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/books" class="nav-link isActive"><i class="fa fa-book"></i> Книги</a>
+                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a href="/create" class="nav-link"><i class="fa fa-plus"></i> Създай</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link"><i class="fa fa-sign-out"></i> Изход</a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link"><i class="fa fa-sign-in"></i> Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link"><i class="fa fa-user-md"></i> Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

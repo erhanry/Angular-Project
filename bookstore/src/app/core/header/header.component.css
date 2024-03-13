@@ -1,0 +1,14 @@
+#user-details {
+    background: #555;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 0.738rem;
+    height: 50px;
+}
+
+@media (max-width: 991.98px) {
+    #user-details {
+        font-size: 0.738rem;
+        text-align: center;
+    }
+}
