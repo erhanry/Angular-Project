@@ -13,6 +13,11 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'books',
+    loadChildren: () =>
+      import('./books/books.module').then((module) => module.BooksModule),
+  },
+  {
     path: 'auth',
     loadChildren: () =>
       import('./user/user.module').then((module) => module.UserModule),
