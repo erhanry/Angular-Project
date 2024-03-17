@@ -7,9 +7,10 @@ import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { AppInterceptorProvider } from './app.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     CoreModule,
