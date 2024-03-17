@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const routes = require('./routes');
 const { corsMiddleware } = require('./middlewares/corsMiddleware');
-const { authMiddleware } = require('./middlewares/authMiddleware'); // TODO
+const { authMiddleware } = require('./middlewares/authMiddleware');
 
 const APP_PORT = 3000;
 const DB_URL = 'mongodb://localhost:27017/bookstore';
