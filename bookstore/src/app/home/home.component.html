@@ -1,1 +1,72 @@
-<p>home works!</p>
+<div id="advantages">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="box d-flex flex-column justify-content-center mb-0 h-100">
+                    <div class="icon"><i class="fa fa-heart"></i></div>
+                    <h3><a routerLink="/books">Добре дошли!</a></h3>
+                    <p class="mb-0">Тук ще намерите каталог с огромен асортимент.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box d-flex flex-column justify-content-center mb-0 h-100">
+                    <div class="icon"><i class="fa fa-tags"></i></div>
+                    <h3><a routerLink="/books">Четат Ви се книги?</a></h3>
+                    <p class="mb-0">Изключително разнообразният ни каталог включва актуалните нови заглавия.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box d-flex flex-column justify-content-center mb-0 h-100">
+                    <div class="icon"><i class="fa fa-thumbs-up"></i></div>
+                    <h3><a routerLink="/books">100% бърза доставка!</a></h3>
+                    <p class="mb-0">Възползвайте се от удобството да направите своята поръчка по всяко време.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row products">
+                <div class="col-lg-3 col-md-4" *ngFor="let book of books; index as i">
+                    <div class="product">
+                        <div class="flip-container">
+                            <div class="flipper">
+                                <div class="front"><a href="/books/e6c41919-8fa7-41dd-aedc-baa466271612"><img
+                                            src="{{book.imgUrl}}" alt="{{book.title}}" class="img-fluid"></a></div>
+                                <div class="back"><a href="/books/e6c41919-8fa7-41dd-aedc-baa466271612"><img
+                                            src="{{book.imgUrl}}" alt="{{book.title}}" class="img-fluid"></a></div>
+                            </div>
+                        </div><a class="invisible" href="/books/e6c41919-8fa7-41dd-aedc-baa466271612"><img
+                                src="{{book.imgUrl}}" alt="{{book.title}}" class="img-fluid"></a>
+                        <div class="text">
+                            <h3>{{book.title}}</h3>
+                            <p class="price">{{book.price | number: '1.2-2' }} лв.</p>
+                            <p class="buttons"><a class="btn btn-outline-secondary"
+                                    routerLink="/books/{{book._id}}">View detail</a></p>
+                        </div>
+                        <div class="ribbon sale" *ngIf="book.sale">
+                            <div class="theribbon">SALE</div>
+                            <div class="ribbon-background"></div>
+                        </div>
+                        <div class="ribbon new" *ngIf="book.news">
+                            <div class="theribbon">NEW</div>
+                            <div class="ribbon-background"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="box text-center">
+    <div class="container">
+        <div class="col-md-12">
+            <h3 class="text-uppercase">Онлайн книжарница</h3>
+            <p class="lead mb-0">При нас ще откриете голямо разнообразие от заглавия, най-новите книги и идеи за
+                подаръци. <a routerLink="/books">ТУК!</a></p>
+        </div>
+    </div>
+</div>
