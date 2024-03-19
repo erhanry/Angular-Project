@@ -4,13 +4,15 @@ const { isAuth } = require('../middlewares/authMiddleware');
 const api = require('../services/userService');
 const errorMapper = require('../util/errorMapper');
 
+const AUTH_COOKIE_NAME = "auth-cookie";
+
 userController.post('/register', async (req, res) => {
     const userData = req.body;
 
     try {
-        const accessToken = await api.register(userData);
-
-        res.status(201).json(accessToken);
+        const token = await api.register(userData);
+        res.cookie(AUTH_COOKIE_NAME, token.accessToken, { httpOnly: true });
+        res.status(200).json(token);
     } catch (err) {
         const message = errorMapper(err);
         res.status(400).json({ message });
@@ -21,9 +23,9 @@ userController.post('/login', async (req, res) => {
     const userData = req.body;
 
     try {
-        const accessToken = await api.login(userData);
-
-        res.status(200).json(accessToken);
+        const token = await api.login(userData);
+        res.cookie(AUTH_COOKIE_NAME, token.accessToken, { httpOnly: true });
+        res.status(200).json(token);
     } catch (err) {
         const message = errorMapper(err);
         res.status(401).json({ message });
@@ -45,6 +47,7 @@ userController.get('/profile', isAuth(), async (req, res) => {
 
 userController.get('/logout', (req, res) => {
     api.logout(req.user.token);
+	res.clearCookie(AUTH_COOKIE_NAME)
     res.status(204).end();
 });
 
