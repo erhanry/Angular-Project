@@ -47,7 +47,7 @@ userController.get('/profile', isAuth(), async (req, res) => {
 
 userController.get('/logout', (req, res) => {
     api.logout(req.user.token);
-	res.clearCookie(AUTH_COOKIE_NAME)
+    res.clearCookie(AUTH_COOKIE_NAME);
     res.status(204).end();
 });
 
