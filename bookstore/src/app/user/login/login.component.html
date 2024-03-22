@@ -7,20 +7,32 @@
                 Ако имате профил, използвайте имейла си за да влезете.
             </p>
             <p class="text-center text-muted">
-                <a routerLink="/register"><strong>Регистрирай се сега</strong></a>!
+                <a routerLink="/auth/register"><strong>Регистрирай се сега</strong></a>!
             </p>
             <hr />
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="loginHandler()">
                 <div class="form-group">
                     <label for="email">Имейл адрес</label>
-                    <input type="email" id="email" class="form-control" placeholder="admin@abv.bg" name="email" />
+                    <input type="email" id="email" class="form-control" formControlName="email" name="email"
+                        placeholder="admin@abv.bg" [class.is-invalid]="isEmaildValid.css" autocomplete="off" />
+                    <ng-container *ngIf="isEmaildValid.touched ">
+                        <p class="invalid-feedback" *ngIf="isEmaildValid.required">Моля въведете имейл адрес!</p>
+                        <p class="invalid-feedback" *ngIf="isEmaildValid.isMatch">Имейл адреса не отговаря на
+                            изискванията!</p>
+                    </ng-container>
                 </div>
                 <div class="form-group">
                     <label for="password">Парола</label>
-                    <input type="password" id="login-password" class="form-control" name="password" />
+                    <input type="password" id="password" class="form-control" formControlName="password" name="password"
+                        [class.is-invalid]="isPasswordValid.css" />
+                    <ng-container *ngIf="isPasswordValid.touched ">
+                        <p class="invalid-feedback" *ngIf="isPasswordValid.required">Моля въведете парола</p>
+                        <p class="invalid-feedback" *ngIf="isPasswordValid.minLength">Паролата изисква минимум 6
+                            символа!</p>
+                    </ng-container>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
                         <i class="fa fa-sign-in"></i>Вход
                     </button>
                 </div>
