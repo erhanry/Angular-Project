@@ -11,12 +11,12 @@
             <a routerLink="/" class="navbar-brand">
                 <img src="./assets/logo.png" alt="Book Store homepage" class="d-md-inline-block" />
             </a>
-            <div class="navbar-buttons mr-auto">
-                <button type="button" class="btn btn-outline-secondary navbar-toggler">
+            <div class="navbar-buttons">
+                <button type="button" class="btn btn-outline-secondary navbar-toggler" (click)="showNavbar()">
                     <i class="fa fa-align-justify"></i>
                 </button>
             </div>
-            <div id="navigation" class="collapse navbar-collapse text-center">
+            <div id="navigation" class="collapse navbar-collapse" [class.show]="isToggleNavbar">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a routerLink="/" class="nav-link"><i class="fa fa-home"></i> Начало</a>
