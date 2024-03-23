@@ -1,0 +1,33 @@
+<div class="product">
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="front">
+                <a [routerLink]="['/books', flipBook._id]">
+                    <img src="{{flipBook.imgUrl}}" alt="{{flipBook.title}}" class="img-fluid">
+                </a>
+            </div>
+            <div class="back">
+                <a [routerLink]="['/books', flipBook._id]">
+                    <img src="{{flipBook.imgUrl}}" alt="{{flipBook.title}}" class="img-fluid">
+                </a>
+            </div>
+        </div>
+    </div>
+    <a class="invisible" [routerLink]="['/books', flipBook._id]">
+        <img src="{{flipBook.imgUrl}}" alt="{{flipBook.title}}" class="img-fluid">
+    </a>
+    <div class="text">
+        <h3>{{flipBook.title}}</h3>
+        <p class="price">{{flipBook.price | number: '1.2-2' }} лв.</p>
+        <p class="buttons"><a class="btn btn-outline-secondary" [routerLink]="['/books', flipBook._id]">View detail</a>
+        </p>
+    </div>
+    <div class="ribbon sale" *ngIf="flipBook.sale">
+        <div class="theribbon">SALE</div>
+        <div class="ribbon-background"></div>
+    </div>
+    <div class="ribbon new" *ngIf="flipBook.news">
+        <div class="theribbon">NEW</div>
+        <div class="ribbon-background"></div>
+    </div>
+</div>
