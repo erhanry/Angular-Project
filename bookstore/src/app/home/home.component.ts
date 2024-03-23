@@ -8,7 +8,8 @@ import { Book } from '../types/books';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  books: Book | any;
+  books: Book[] | null = [];
+
   constructor(private homeService: HomeService) {}
 
   ngOnInit(): void {
@@ -16,13 +17,9 @@ export class HomeComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.homeService.getLast().subscribe({
-      next: (books) => {
-        this.books = books;
-      },
-      error: (err) => {
-        console.error(`Error: ${err}`);
-      },
+    this.homeService.getLastBooks().subscribe({
+      next: (books) => (this.books = books),
+      error: (err) => console.error(`Error: ${err}`),
     });
   }
 }
