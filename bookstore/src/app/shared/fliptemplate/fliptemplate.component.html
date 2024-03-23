@@ -18,7 +18,7 @@
     </a>
     <div class="text">
         <h3>{{flipBook.title}}</h3>
-        <p class="price">{{flipBook.price | number: '1.2-2' }} лв.</p>
+        <p class="price">{{flipBook.price | price: 'BGN'}} </p>
         <p class="buttons"><a class="btn btn-outline-secondary" [routerLink]="['/books', flipBook._id]">View detail</a>
         </p>
     </div>

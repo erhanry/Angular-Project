@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Book } from 'src/app/types/books';
 
 @Component({
@@ -6,12 +6,8 @@ import { Book } from 'src/app/types/books';
   templateUrl: './fliptemplate.component.html',
   styleUrls: ['./fliptemplate.component.css'],
 })
-export class FliptemplateComponent implements OnInit {
+export class FliptemplateComponent {
   @Input('flipBook') flipBook: Book | any;
 
   constructor() {}
-
-  ngOnInit(): void {
-    console.log(this.flipBook);
-  }
 }
