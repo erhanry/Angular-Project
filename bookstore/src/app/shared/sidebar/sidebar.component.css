@@ -1,0 +1,107 @@
+.sidebar-menu {
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+.sidebar-menu .card-header .btn.btn-danger {
+    color: #fff;
+  }
+  
+.sidebar-menu .badge-light {
+    color: #4fbfa8;
+  }
+  
+.sidebar-menu .card {
+    padding: 15px;
+    background: #fff;
+  }
+  
+.sidebar-menu .card span.colour {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: solid 1px #555;
+    vertical-align: top;
+    margin-top: 2px;
+    margin-left: 5px;
+  }
+  
+.sidebar-menu .card span.colour.white {
+    background: #fff;
+  }
+  
+.sidebar-menu .card span.colour.red {
+    background: red;
+  }
+  
+.sidebar-menu .card span.colour.green {
+    background: green;
+  }
+  
+.sidebar-menu .card span.colour.blue {
+    background: blue;
+  }
+  
+.sidebar-menu .card span.colour.yellow {
+    background: yellow;
+  }
+  
+.sidebar-menu .card label {
+    color: #555;
+    font-size: 0.738rem;
+  }
+  
+.sidebar-menu h3 {
+    padding: 5px 0;
+    margin: 0;
+  }
+  
+.sidebar-menu ul.nav.category-menu {
+    margin-bottom: 20px;
+  }
+  
+.sidebar-menu ul.nav.category-menu li a {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    border-radius: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+.sidebar-menu ul.nav.category-menu li a:not(.active):hover {
+    background: #eeeeee;
+  }
+  
+.sidebar-menu ul.nav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+.sidebar-menu ul.nav ul li {
+    display: block;
+  }
+  
+.sidebar-menu ul.nav ul li a {
+    position: relative;
+    font-weight: normal;
+    text-transform: none !important;
+    display: block;
+    padding: 10px 15px;
+    padding-left: 30px;
+    font-size: 0.738rem;
+    color: #555;
+  }
+  
+.sidebar-menu ul.nav ul li a:hover,
+.sidebar-menu ul.nav ul li a:focus {
+    text-decoration: none;
+    background-color: #eeeeee;
+  }
