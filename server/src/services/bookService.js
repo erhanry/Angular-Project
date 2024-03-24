@@ -8,8 +8,7 @@ exports.getLast = (limit) => this.getAll().sort({ createdAt: -1 }).limit(limit);
 
 exports.getOneDetailed = (id) => this.getOne(id).populate('owner', { password: 0 }).populate('category');
 
-// TODO
-// exports.getCategory = (categoryId) => this.find({ category: categoryId }).sort({ createdAt: -1 });
+exports.getCategory = (categoryId) => Book.find({ category: categoryId }).sort({ createdAt: -1 });
 
 exports.create = (newData) => Book.create(newData);
 

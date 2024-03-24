@@ -96,6 +96,19 @@ bookController.get('/:id', async (req, res) => {
     }
 });
 
+bookController.get('/category/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const result = await api.getCategory(id);
+        console.log(id);
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(404).json({ message: 'Book not found' });
+
+    }
+});
+
 bookController.put('/:id', isAuth(), isOwner(), async (req, res) => {
     const newData = req.body;
     const oldData = req.book;
