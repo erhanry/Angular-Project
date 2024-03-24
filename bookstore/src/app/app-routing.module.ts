@@ -18,6 +18,13 @@ const routes: Routes = [
       import('./books/books.module').then((module) => module.BooksModule),
   },
   {
+    path: 'category',
+    loadChildren: () =>
+      import('./category/category.module').then(
+        (module) => module.CategoryModule
+      ),
+  },
+  {
     path: 'auth',
     loadChildren: () =>
       import('./user/user.module').then((module) => module.UserModule),

@@ -200,42 +200,6 @@ body {
     width: 500px;
   }
   
-  
-  
-  /*
-  *
-  * ======================================================================
-  * HOT
-  * ======================================================================
-  *
-  */
-  #hot h2 {
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 2.25rem;
-    color: #4fbfa8;
-    font-weight: 100;
-    text-align: center;
-  }
-  
-  #hot .product-slider {
-    clear: both;
-    margin-bottom: 20px;
-  }
-  
-  #hot .product-slider .item {
-    margin: 0 25px;
-  }
-  
-  #hot .product-slider .product {
-    margin-bottom: 0;
-  }
-  
-  #hot .product-slider .owl-dots {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
   /*
   *
   * ======================================================================

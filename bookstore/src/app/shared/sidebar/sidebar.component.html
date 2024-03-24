@@ -6,9 +6,10 @@
         <ul class="nav nav-pills flex-column category-menu">
             <li>
                 <ul class="list-unstyled">
-                    <li><a routerLink="/books">Всички книги</a></li>
+                    <li><a routerLink="/books" class="nav-link" routerLinkActive="active">Всички книги</a></li>
                     <li *ngFor="let category of categorys">
-                        <a routerLink="/category/{{category.path}}">{{category.title}}</a>
+                        <a routerLink="/category/{{category.path}}" class="nav-link"
+                            routerLinkActive="active">{{category.title}}</a>
                     </li>
                 </ul>
             </li>

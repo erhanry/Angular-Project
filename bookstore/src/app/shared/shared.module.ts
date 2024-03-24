@@ -14,6 +14,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SidebarComponent,
   ],
   imports: [CommonModule, RouterModule],
-  exports: [BreadcrumbComponent, FliptemplateComponent, SidebarComponent],
+  exports: [
+    BreadcrumbComponent,
+    FliptemplateComponent,
+    SidebarComponent,
+    PricePipe,
+  ],
 })
 export class SharedModule {}

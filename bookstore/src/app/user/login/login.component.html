@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <label for="email">Имейл адрес</label>
                     <input type="email" id="email" class="form-control" formControlName="email" name="email"
-                        placeholder="admin@abv.bg" [class.is-invalid]="isEmaildValid.css" autocomplete="off" />
+                        placeholder="admin@abv.bg" [class.is-invalid]="isEmaildValid.css" autocomplete="on" />
                     <ng-container *ngIf="isEmaildValid.touched ">
                         <p class="invalid-feedback" *ngIf="isEmaildValid.required">Моля въведете имейл адрес!</p>
                         <p class="invalid-feedback" *ngIf="isEmaildValid.isMatch">Имейл адреса не отговаря на
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="password">Парола</label>
                     <input type="password" id="password" class="form-control" formControlName="password" name="password"
-                        [class.is-invalid]="isPasswordValid.css" />
+                        [class.is-invalid]="isPasswordValid.css" autocomplete="on" />
                     <ng-container *ngIf="isPasswordValid.touched ">
                         <p class="invalid-feedback" *ngIf="isPasswordValid.required">Моля въведете парола</p>
                         <p class="invalid-feedback" *ngIf="isPasswordValid.minLength">Паролата изисква минимум 6

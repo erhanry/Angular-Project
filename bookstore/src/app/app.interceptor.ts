@@ -8,17 +8,18 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 const { apiUrl } = environment;
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private router: Router) {}
 
   intercept(
-    request: HttpRequest<unknown>,
+    request: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  ): Observable<HttpEvent<any>> {
     if (request.url.startsWith('/api')) {
       request = request.clone({
         url: request.url.replace('/api', apiUrl),
@@ -27,6 +28,19 @@ export class AppInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request);
+    //Todo
+    // .pipe(
+    //   catchError((err) => {
+    //     if (err.status === 401) {
+    //       this.router.navigate(['/auth/login']);
+    //     } else {
+    //       this.errorService.setError(err);
+    //       this.router.navigate(['/error']);
+    //     }
+
+    //     return [err];
+    //   })
+    // );
   }
 }
 

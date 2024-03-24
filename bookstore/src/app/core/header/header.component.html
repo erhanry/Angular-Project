@@ -15,31 +15,56 @@
                 <button type="button" class="btn btn-outline-secondary navbar-toggler" (click)="showNavbar()">
                     <i class="fa fa-align-justify"></i>
                 </button>
+                <button type="button" data-target="#search" class="btn btn-outline-secondary navbar-toggler"
+                    aria-expanded="true"><span class="sr-only">Toggle
+                        search</span><i class="fa fa-search"></i></button>
             </div>
             <div id="navigation" class="collapse navbar-collapse" [class.show]="isToggleNavbar">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a routerLink="/" class="nav-link"><i class="fa fa-home"></i> Начало</a>
+                        <a routerLink="/home" class="nav-link" routerLinkActive="active"><i class="fa fa-home"></i>
+                            Начало</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/books" class="nav-link isActive"><i class="fa fa-book"></i> Книги</a>
+                        <a routerLink="/books" class="nav-link" routerLinkActive="active"><i class="fa fa-book"></i>
+                            Книги</a>
                     </li>
 
                     <!-- <li class="nav-item">
-                        <a routerLink="/create" class="nav-link"><i class="fa fa-plus"></i> Създай</a>
+                        <a routerLink="/books/create" class="nav-link" routerLinkActive="active"><i class="fa fa-plus"></i> Създай</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/logout" class="nav-link"><i class="fa fa-sign-out"></i> Изход</a>
+                        <a routerLink="/auth/logout" class="nav-link" routerLinkActive="active"><i class="fa fa-sign-out"></i> Изход</a>
                     </li> -->
 
                     <li class="nav-item">
-                        <a routerLink="/auth/login" class="nav-link"><i class="fa fa-sign-in"></i> Вход</a>
+                        <a routerLink="/auth/login" class="nav-link" routerLinkActive="active"><i
+                                class="fa fa-sign-in"></i> Вход</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/auth/register" class="nav-link"><i class="fa fa-user-md"></i> Регистрация</a>
+                        <a routerLink="/auth/register" class="nav-link" routerLinkActive="active"><i
+                                class="fa fa-user-md"></i> Регистрация</a>
                     </li>
                 </ul>
+                <div class="navbar-buttons d-flex justify-content-end">
+                    <div id="search-not-mobile" class="navbar-collapse collapse"></div>
+                    <a href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block" aria-expanded="true">
+                        <span class="sr-only">Toggle search</span><i class="fa fa-search"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
+    <div id="search" class="collapse show">
+        <div class="container">
+            <form role="search" class="ml-auto">
+                <div class="input-group">
+                    <input type="text" placeholder="Search" class="form-control">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </header>

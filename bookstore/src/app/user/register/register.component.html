@@ -4,14 +4,15 @@
         <div class="box">
             <h1>Нова регистрация</h1>
             <p class="lead">Регистрацията Ви дава безброй предимства.</p>
-            <p class="text-muted">Aко вече сте регистриран потребител, <a routerLink="/auth/login">Вход</a> към вашия
+            <p class="text-muted">Aко вече сте регистриран потребител, <a
+                    routerLink="/auth/login"><strong>Вход</strong></a> към вашия
                 профил!</p>
             <hr>
             <form [formGroup]="registerForm" (ngSubmit)="registerHandler()">
                 <div class="form-group">
                     <label for="firstName">Име</label>
                     <input type="text" id="firstName" class="form-control" formControlName="firstName" name="firstName"
-                        [class.is-invalid]="isFirstNameValid.css" autocomplete="off" />
+                        [class.is-invalid]="isFirstNameValid.css" autocomplete="on" />
                     <ng-container *ngIf="isFirstNameValid.touched ">
                         <p class="invalid-feedback" *ngIf="isFirstNameValid.required">Моля въведете име!</p>
                         <p class="invalid-feedback" *ngIf="isFirstNameValid.minLength">Името изисква минимум 2
@@ -21,7 +22,7 @@
                 <div class="form-group">
                     <label for="lastName">Фамилия</label>
                     <input type="text" id="lastName" class="form-control" formControlName="lastName" name="lastName"
-                        [class.is-invalid]="isLastNameValid.css" autocomplete="off" />
+                        [class.is-invalid]="isLastNameValid.css" autocomplete="on" />
                     <ng-container *ngIf="isLastNameValid.touched ">
                         <p class="invalid-feedback" *ngIf="isLastNameValid.required">Моля въведете фамилия!</p>
                         <p class="invalid-feedback" *ngIf="isLastNameValid.minLength">Фамилията изисква минимум 2
@@ -31,7 +32,7 @@
                 <div class="form-group">
                     <label for="email">Имейл адрес</label>
                     <input type="email" id="email" class="form-control" formControlName="email" name="email"
-                        placeholder="admin@abv.bg" [class.is-invalid]="isEmaildValid.css" autocomplete="off" />
+                        placeholder="admin@abv.bg" [class.is-invalid]="isEmaildValid.css" autocomplete="on" />
                     <ng-container *ngIf="isEmaildValid.touched ">
                         <p class="invalid-feedback" *ngIf="isEmaildValid.required">Моля въведете имейл адрес!</p>
                         <p class="invalid-feedback" *ngIf="isEmaildValid.isMatch">Имейл адреса не отговаря на
@@ -42,7 +43,7 @@
                     <div class="form-group">
                         <label for="password">Парола</label>
                         <input type="password" id="password" class="form-control" formControlName="password"
-                            name="password" [class.is-invalid]="isPassGroupdValid.cssPass" />
+                            name="password" [class.is-invalid]="isPassGroupdValid.cssPass" autocomplete="on" />
                         <ng-container *ngIf="isPassGroupdValid.touched">
                             <p class="invalid-feedback" *ngIf="isPassGroupdValid.requiredPass">Моля въведете парола!</p>
                             <p class="invalid-feedback" *ngIf="isPassGroupdValid.minLength">Паролата изисква минимум 6
@@ -52,8 +53,8 @@
                     <div class="form-group">
                         <label for="confirmPassword">Повтори паролата</label>
                         <input type="password" formControlName="confirmPassword" name="confirmPassword"
-                            id="confirmPassword" class="form-control"
-                            [class.is-invalid]="isPassGroupdValid.cssRePass" />
+                            id="confirmPassword" class="form-control" [class.is-invalid]="isPassGroupdValid.cssRePass"
+                            autocomplete="on" />
                         <ng-container *ngIf="isPassGroupdValid.touched">
                             <p class="invalid-feedback" *ngIf="isPassGroupdValid.requiredRePass">Моля повторете
                                 паролата!</p>

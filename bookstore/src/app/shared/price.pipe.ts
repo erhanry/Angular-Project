@@ -15,6 +15,10 @@ export class PricePipe implements PipeTransform {
   transform(value: number, ...args: string[]): string {
     let result: string = '';
 
+    if (!value) {
+      return result;
+    }
+
     if (args.includes('BGN')) {
       const priceStr = this.toFixed(value);
       return result.concat('', priceStr, ' лв.');

@@ -43,16 +43,6 @@
     margin-top: -1px;
 }
 
-.nav-pills .nav-link {
-    border-radius: 0;
-}
-
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #4fbfa8;
-}
-
 @media (max-width: 991.98px) {
     #user-details {
         font-size: 0.738rem;
