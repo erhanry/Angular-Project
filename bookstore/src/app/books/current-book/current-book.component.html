@@ -1,1 +1,70 @@
-<p>current-book works!</p>
+<div class="row">
+    <app-breadcrumb class="col-lg-12" currentPage="Детайл" />
+    <app-sidebar class="col-lg-3" [categorys]="categorys" />
+    <div class="col-lg-9 order-1 order-lg-2">
+        <div id="productMain" class="row">
+            <div class="col-md-6">
+                <div class="product">
+                    <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="{{book.imgUrl}}" alt="{{book.title}}" class="img-fluid" />
+                            </div>
+                            <div class="back">
+                                <img src="{{book.imgUrl}}" alt="{{book.title}}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                    <a class="invisible ">
+                        <img src="{{book.imgUrl}}" alt="{{book.title}}" class="img-fluid" />
+                    </a>
+                    <div class="text">
+                        <h3>{{book.title}}</h3>
+                        <p class="price">{{book.price | price: 'BGN'}}</p>
+                    </div>
+                    <div class="ribbon sale" *ngIf="book.sale">
+                        <div class="theribbon">SALE</div>
+                        <div class="ribbon-background"></div>
+                    </div>
+                    <div class="ribbon new" *ngIf="book.news">
+                        <div class="theribbon">NEW</div>
+                        <div class="ribbon-background"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box">
+                    <h4>Автор</h4>
+                    <p>{{book.author}}</p>
+                    <hr />
+                    <h4>Издателство</h4>
+                    <p>{{book.publisher}}</p>
+                    <hr />
+                    <h4>Година на издаване</h4>
+                    <p>{{book.year}}</p>
+                    <hr />
+                    <h4>Език</h4>
+                    <p>{{book.language}}</p>
+                    <hr />
+                    <h4>Създаден на</h4>
+                    <p>{{book.createdAt | date:"dd.MM.yyyy HH:mm"}}</p>
+                    <hr />
+                    <ng-container *ngIf="isUpdate">
+                        <h4>Обновен на</h4>
+                        <p>{{book.updatedAt | date:"dd.MM.yyyy HH:mm"}}</p>
+                        <hr />
+                    </ng-container>
+                    <blockquote>
+                        <p><em>{{book.description}}</em></p>
+                    </blockquote>
+                    <hr />
+                    <p class="text-center buttons">
+                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
+                        <button class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete</button>
+                        <!-- <button class="btn btn-outline-danger" onClick={openModal}><i class="fa fa-trash"></i> Delete</button> -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
