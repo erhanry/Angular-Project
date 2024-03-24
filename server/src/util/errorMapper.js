@@ -1,11 +1,15 @@
-module.exports = (error) => {
+const { MongooseError } = require('mongoose');
 
-    if (error.name == 'ValidationError') {
-        return Object
-            .entries(error.errors)
-            .map(([key, err]) => err.properties.message)
-            .join('\n');
-    } else {
-        return error.message;
+module.exports = (err) => {
+    if (!err) {
+        return '';
+    }
+
+    if (err instanceof MongooseError) {
+        return Object.values(err.errors).map(x => x.message);
+    } else if (Array.isArray(err)) {
+        return err.map(e => e.msg);
+    } else if (err instanceof Error) {
+        return err.message.split('\n');
     }
 };

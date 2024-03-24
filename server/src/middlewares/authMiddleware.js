@@ -14,7 +14,6 @@ exports.authMiddleware = () => async (req, res, next) => {
 
             };
         } catch (err) {
-            console.error(err);
             return res.status(401).json({ message: 'Invalid access token. Please log in' });
         }
     }
