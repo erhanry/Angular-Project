@@ -6,6 +6,12 @@ const categorySchema = new Schema({
         required: [true, 'Title is required'],
         minlength: [3, "Title must at least 3 characters long"]
     },
+    path: {
+        type: String,
+        unique: true,
+        required: [true, 'Path is required'],
+        minlength: [3, "Path must at least 3 characters long"]
+    },
     owner: {
         type: ObjectId,
         required: [true, 'Owner is required'],
