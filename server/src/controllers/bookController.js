@@ -101,7 +101,6 @@ bookController.get('/category/:id', async (req, res) => {
 
     try {
         const result = await api.getCategory(id);
-        console.log(id);
         res.status(200).json(result);
     } catch (err) {
         res.status(404).json({ message: 'Book not found' });

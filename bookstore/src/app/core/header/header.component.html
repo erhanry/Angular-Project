@@ -26,16 +26,18 @@
                             Начало</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/books" class="nav-link" routerLinkActive="active"><i class="fa fa-book"></i>
+                        <a routerLink="/books" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-book"></i>
                             Книги</a>
                     </li>
-
-                    <!-- <li class="nav-item">
-                        <a routerLink="/books/create" class="nav-link" routerLinkActive="active"><i class="fa fa-plus"></i> Създай</a>
+                    <li class="nav-item">
+                        <a routerLink="/books/create" class="nav-link" routerLinkActive="active"><i
+                                class="fa fa-plus"></i> Създай</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/auth/logout" class="nav-link" routerLinkActive="active"><i class="fa fa-sign-out"></i> Изход</a>
-                    </li> -->
+                        <a routerLink="/auth/logout" class="nav-link" routerLinkActive="active"><i
+                                class="fa fa-sign-out"></i> Изход</a>
+                    </li>
 
                     <li class="nav-item">
                         <a routerLink="/auth/login" class="nav-link" routerLinkActive="active"><i

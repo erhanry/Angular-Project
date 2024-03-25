@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../book.service';
 import { Book } from 'src/app/types/books';
-import { CategoryService } from '../../category/category.service';
 import { Category } from 'src/app/types/category';
 
 @Component({
@@ -12,12 +11,10 @@ import { Category } from 'src/app/types/category';
 })
 export class CurrentBookComponent implements OnInit {
   book = {} as Book;
-  categorys = [] as Category[];
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private bookService: BookService,
-    private categoryService: CategoryService
+    private bookService: BookService
   ) {}
 
   ngOnInit(): void {
@@ -31,15 +28,6 @@ export class CurrentBookComponent implements OnInit {
       this.bookService.getBook(id).subscribe((book) => {
         this.book = book;
       });
-    });
-
-    this.categoryService.getCategory().subscribe({
-      next: (category) => {
-        this.categorys = category;
-      },
-      error: (err) => {
-        console.error('Error: ', err);
-      },
     });
   }
 

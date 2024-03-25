@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
-import { CategoryService } from 'src/app/category/category.service';
 import { Category } from 'src/app/types/category';
 import { Book } from 'src/app/types/books';
 
@@ -10,12 +9,8 @@ import { Book } from 'src/app/types/books';
   styleUrls: ['./catalog-book.component.css'],
 })
 export class CatalogBookComponent implements OnInit {
-  categorys = [] as Category[];
   books = [] as Book[];
-  constructor(
-    private bookService: BookService,
-    private categoryService: CategoryService
-  ) {}
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
     this.getAllBooks();
@@ -24,15 +19,6 @@ export class CatalogBookComponent implements OnInit {
   getAllBooks() {
     this.bookService.getAllBook().subscribe((books) => {
       this.books = books;
-    });
-
-    this.categoryService.getCategory().subscribe({
-      next: (category) => {
-        this.categorys = category;
-      },
-      error: (err) => {
-        console.error('Error: ', err);
-      },
     });
   }
 }

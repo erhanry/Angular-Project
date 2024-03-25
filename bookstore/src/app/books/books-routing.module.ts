@@ -7,9 +7,9 @@ import { CurrentBookComponent } from './current-book/current-book.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CatalogBookComponent },
-  { path: ':bookId', component: CurrentBookComponent },
   { path: 'edit', component: EditBookComponent },
-  { path: 'create', pathMatch: 'full', component: CreateBookComponent },
+  { path: 'create', component: CreateBookComponent },
+  { path: ':bookId', component: CurrentBookComponent },
 ];
 
 @NgModule({
