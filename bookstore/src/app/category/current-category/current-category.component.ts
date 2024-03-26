@@ -17,35 +17,21 @@ export class CurrentCategoryComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private bookService: BookService,
-    private sidebarSevice: SidebarService
+    private sidebarService: SidebarService
   ) {}
 
   ngOnInit(): void {
-    this.getCategory();
-  }
-
-  getCategory() {
+    this.categorys = this.sidebarService.categorys!;
     this.activeRoute.params.subscribe((data) => {
-      const categoryPath = data['categoryPath'];
-
-      this.sidebarSevice.getCategory().subscribe({
-        next: (categorys) => {
-          this.categorys = categorys;
-
-          const categorySelected = categorys.find(
-            (c) => c.path == categoryPath
-          );
-          this.pageTitle = categorySelected?.title!;
-          this.bookService
-            .getCategoryBook(categorySelected?._id!)
-            .subscribe((books) => {
-              this.books = books;
-            });
-        },
-        error: (err) => {
-          console.error('Error: ', err);
-        },
-      });
+      const selectedCategory = this.categorys.find(
+        (cat) => cat.path == data['categoryPath']
+      );
+      this.pageTitle = selectedCategory?.title!;
+      this.bookService
+        .getCategoryBook(selectedCategory?._id!)
+        .subscribe((books) => {
+          this.books = books;
+        });
     });
   }
 }

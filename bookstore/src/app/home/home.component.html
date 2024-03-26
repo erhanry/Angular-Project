@@ -29,7 +29,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="mb-0">Най-новите книги</h2>
+                <h2 class="mb-0" *ngIf="books?.length">Най-новите книги</h2>
+                <h2 class="mb-0" *ngIf="!books?.length">Няма добавени книги!</h2>
             </div>
         </div>
     </div>

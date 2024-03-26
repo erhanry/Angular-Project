@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../book.service';
 import { Book } from 'src/app/types/books';
-import { Category } from 'src/app/types/category';
 
 @Component({
   selector: 'app-current-book',
@@ -34,14 +33,4 @@ export class CurrentBookComponent implements OnInit {
   get isUpdate() {
     return this.book?.createdAt != this.book?.updatedAt;
   }
-  // settt() {
-  //   const userDetails$ = this.bookService.getBook('65ff15c83e7e8230b1852127');
-  //   const userActivities$ = this.bookService.getCategory();
-
-  //   forkJoin([userDetails$, userActivities$]).subscribe(
-  //     ([userDetails, userActivities]) => {
-  //       console.log('foforkrm', userDetails, userActivities);
-  //     }
-  //   );
-  // }
 }

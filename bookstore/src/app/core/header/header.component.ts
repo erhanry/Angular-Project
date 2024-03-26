@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarService } from 'src/app/shared/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isToggleNavbar: boolean = false;
+
+  constructor(private sidebarSevice: SidebarService) {
+    this.sidebarSevice.getCategory().subscribe(() => {});
+  }
 
   showNavbar() {
     this.isToggleNavbar = !this.isToggleNavbar;
