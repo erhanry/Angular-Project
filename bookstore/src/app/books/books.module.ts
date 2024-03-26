@@ -9,6 +9,7 @@ import { CurrentBookComponent } from './current-book/current-book.component';
 import { SharedModule } from '../shared/shared.module';
 import { BookService } from './book.service';
 import { FormsModule } from '@angular/forms';
+import { ImageDirective } from './directive/image.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     CreateBookComponent,
     CatalogBookComponent,
     CurrentBookComponent,
+    ImageDirective,
   ],
   imports: [CommonModule, BooksRoutingModule, SharedModule, FormsModule],
   providers: [BookService],

@@ -17,4 +17,8 @@ export class BookService {
   getCategoryBook(id: string) {
     return this.http.get<Book[]>(`/api/books/category/${id}`);
   }
+
+  createBook(newBook: Book) {
+    return this.http.post<Book>('/api/books', { ...newBook });
+  }
 }
