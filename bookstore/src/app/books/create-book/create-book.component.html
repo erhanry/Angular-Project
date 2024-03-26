@@ -1,1 +1,165 @@
-<p>create-book works!</p>
+<div class="row">
+    <app-breadcrumb class="col-lg-12" currentPage="Нова Книга" />
+    <app-sidebar class="col-lg-3" />
+    <div id="checkout" class="col-lg-9">
+        <div class="box">
+            <form #createForm="ngForm" (ngSubmit)="createSubmit(createForm)">
+                <div class="content py-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title">Наименование</label>
+                                <input type="text" class="form-control" id="title" name="title" ngModel
+                                    #inputTitle="ngModel" required minlength="3"
+                                    [class.is-invalid]="inputTitleValid.css" />
+                                <ng-container *ngIf="inputTitleValid.touched ">
+                                    <p class="invalid-feedback" *ngIf="inputTitleValid.required">Моля въведете
+                                        наименование!</p>
+                                    <p class="invalid-feedback" *ngIf="inputTitleValid.minLength">
+                                        Наименованието изисква
+                                        минимум 3 символа!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="author">Автор</label>
+                                <input type="text" class="form-control" id="author" name="author" ngModel
+                                    #inputAuthor="ngModel" required minlength="3"
+                                    [class.is-invalid]="inputAuthorValid.css" />
+                                <ng-container *ngIf="inputAuthorValid.touched ">
+                                    <p class="invalid-feedback" *ngIf="inputAuthorValid.required">Моля въведете
+                                        автор!</p>
+                                    <p class="invalid-feedback" *ngIf="inputAuthorValid.minLength">
+                                        Автора изисква минимум 3 символа!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="publisher">Издателство</label>
+                                <input type="text" class="form-control" id="publisher" name="publisher" ngModel
+                                    #inputPublisher="ngModel" required minlength="3"
+                                    [class.is-invalid]="inputPublisherValid.css" />
+                                <ng-container *ngIf="inputPublisherValid.touched ">
+                                    <p class="invalid-feedback" *ngIf="inputPublisherValid.required">Моля въведете
+                                        издателство!</p>
+                                    <p class="invalid-feedback" *ngIf="inputPublisherValid.minLength">
+                                        Издателството изисква минимум 3 символа!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="price">Цена</label>
+                                <input type="number" class="form-control" id="price" name="price" ngModel
+                                    #inputPrice="ngModel" required min="0" [class.is-invalid]="inputPriceValid.css" />
+                                <ng-container *ngIf="inputPriceValid.touched ">
+                                    <p class="invalid-feedback" *ngIf="inputPriceValid.required">Моля въведете валидна
+                                        цена!</p>
+                                    <p class="invalid-feedback" *ngIf="inputPriceValid.min"> Моля въведете положителна
+                                        цена!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="year">Година на издаване</label>
+                                <input type="number" class="form-control" id="year" name="year" ngModel
+                                    placeholder="2024" #inputYear="ngModel" required min="1950" max="2050"
+                                    [class.is-invalid]="inputYearValid.css" />
+                                <ng-container *ngIf="inputYearValid.touched ">
+                                    <p class="invalid-feedback" *ngIf="inputYearValid.required">Моля въведете валидна
+                                        година!
+                                    </p>
+                                    <p class="invalid-feedback" *ngIf="inputYearValid.valid"> Моля въведете година между
+                                        1950 и 2050!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="category">Категория</label>
+                                <select class="form-control" id="category" name="category" ngModel>
+                                    <option *ngFor="let category of categorys" value="{{category._id}}">
+                                        {{category.title}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="language">Език</label>
+                                <select class="form-control" id="language" name="language" ngModel>
+                                    <option defaultValue="Български">Български</option>
+                                    <option defaultValue="Английски">Английски</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="news">Нова</label>
+                                <select class="form-control" id="news" name="news" ngModel>
+                                    <option [ngValue]="true">Да</option>
+                                    <option [ngValue]="false">Не</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sale">Налична</label>
+                                <select class="form-control" id="sale" name="sale" ngModel>
+                                    <option [ngValue]="true">Да</option>
+                                    <option [ngValue]="false">Не</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="imgUrl">Картина</label>
+                                <input type="text" class="form-control" id="imgUrl" name="imgUrl" ngModel
+                                    #imgUrl="ngModel" appImageValidator [class.is-invalid]="inputImgUrlValid.css"
+                                    placeholder="http://...image.jpg" />
+                                <ng-container *ngIf="inputImgUrlValid.dirty">
+                                    <p class="invalid-feedback" *ngIf="inputImgUrlValid.invalidImgUrl">Моля въведете
+                                        валиден адрес!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="description">Описание</label>
+                                <textarea class="form-control" id="description" name="description" ngModel
+                                    #description="ngModel" minlength="10" maxlength="1000"
+                                    [class.is-invalid]="descriptionValid.css"></textarea>
+                                <ng-container *ngIf="descriptionValid.touched ">
+                                    <p class="invalid-feedback" *ngIf="descriptionValid.minLength">Описанието
+                                        изисква минимум 10 символа!</p>
+                                    <p class="invalid-feedback" *ngIf="descriptionValid.maxLength">
+                                        Описанието приема максумум 1000 символа!</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer d-flex justify-content-between">
+                    <button class="btn btn-outline-secondary" (click)="createForm.reset()"><i class="fa fa-refresh"></i>
+                        Изчисти</button>
+                    <button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Изпрати</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
