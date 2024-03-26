@@ -1,7 +1,8 @@
 const { validateToken } = require('../services/userService');
+const AUTH_COOKIE_NAME = "auth-cookie";
 
 exports.authMiddleware = () => async (req, res, next) => {
-    const accessToken = req.headers['x-authorization'];
+    const accessToken = req.cookies[AUTH_COOKIE_NAME];
 
     if (accessToken) {
         try {
@@ -14,6 +15,7 @@ exports.authMiddleware = () => async (req, res, next) => {
 
             };
         } catch (err) {
+            res.clearCookie(AUTH_COOKIE_NAME);
             return res.status(401).json({ message: 'Invalid access token. Please log in' });
         }
     }
