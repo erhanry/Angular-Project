@@ -8,34 +8,13 @@ import { UserService } from 'src/app/user/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isToggleNavbar: boolean = false;
 
-  constructor(
-    private sidebarSevice: SidebarService,
-    private userService: UserService,
-    private router: Router
-  ) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
-  }
-
-  ngOnInit(): void {
-    this.getCategory();
-    this.getProfile();
-  }
-
-  getCategory() {
-    this.sidebarSevice.getCategory().subscribe();
-  }
-
-  getProfile() {
-    const cookie = document.cookie.split('=').includes('auth-cookie');
-
-    if (!this.isLoggedIn && cookie) {
-      this.userService.getProfile().subscribe();
-    }
   }
 
   logout() {
