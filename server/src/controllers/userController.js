@@ -11,7 +11,7 @@ userController.post('/register', async (req, res) => {
 
     try {
         const token = await api.register(userData);
-        res.cookie(AUTH_COOKIE_NAME, token.accessToken);
+        res.cookie(AUTH_COOKIE_NAME, token.accessToken, { httpOnly: true });
         res.status(200).json(token);
     } catch (err) {
         const message = errorMapper(err);
@@ -24,7 +24,7 @@ userController.post('/login', async (req, res) => {
 
     try {
         const token = await api.login(userData);
-        res.cookie(AUTH_COOKIE_NAME, token.accessToken);
+        res.cookie(AUTH_COOKIE_NAME, token.accessToken, { httpOnly: true });
         res.status(200).json(token);
     } catch (err) {
         const message = errorMapper(err);
