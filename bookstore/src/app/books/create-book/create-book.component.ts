@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookService } from '../book.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,17 +11,20 @@ import { Category } from 'src/app/types/category';
   templateUrl: './create-book.component.html',
   styleUrls: ['./create-book.component.css'],
 })
-export class CreateBookComponent {
+export class CreateBookComponent implements OnInit {
   categorys = [] as Category[];
+
   constructor(
     private bookService: BookService,
     private sidebarService: SidebarService,
     private router: Router
-  ) {
-    this.categorys = this.sidebarService.categorys!;
-  }
+  ) {}
 
   @ViewChild('createForm') createForm: NgForm | undefined;
+
+  ngOnInit(): void {
+    this.categorys = this.sidebarService.categorys!;
+  }
 
   createSubmit(createForm: NgForm) {
     if (createForm.invalid) {

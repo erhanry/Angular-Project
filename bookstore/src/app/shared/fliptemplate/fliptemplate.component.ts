@@ -8,6 +8,4 @@ import { Book } from 'src/app/types/books';
 })
 export class FliptemplateComponent {
   @Input('flipBook') flipBook: Book | any;
-
-  constructor() {}
 }

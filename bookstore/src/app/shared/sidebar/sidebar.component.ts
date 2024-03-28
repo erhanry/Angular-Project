@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/types/category';
 import { SidebarService } from '../sidebar.service';
 
@@ -7,10 +7,12 @@ import { SidebarService } from '../sidebar.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   categorys: Category[] | undefined;
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(private sidebarService: SidebarService) {}
+
+  ngOnInit(): void {
     this.categorys = this.sidebarService.categorys!;
   }
 }

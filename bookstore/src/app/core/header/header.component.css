@@ -43,6 +43,10 @@
     margin-top: -1px;
 }
 
+.logout{
+    cursor: pointer;
+}
+
 @media (max-width: 991.98px) {
     #user-details {
         font-size: 0.738rem;

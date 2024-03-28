@@ -4,11 +4,12 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { CatalogBookComponent } from './catalog-book/catalog-book.component';
 import { CurrentBookComponent } from './current-book/current-book.component';
+import { authGuard } from '../guard/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CatalogBookComponent },
   { path: 'edit', component: EditBookComponent },
-  { path: 'create', component: CreateBookComponent },
+  { path: 'create', component: CreateBookComponent, canActivate: [authGuard] },
   { path: ':bookId', component: CurrentBookComponent },
 ];
 

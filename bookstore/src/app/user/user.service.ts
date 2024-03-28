@@ -13,6 +13,10 @@ export class UserService implements OnDestroy {
   user: UserForAuth | undefined;
   userSubscription: Subscription;
 
+  get isLogged(): boolean {
+    return !!this.user;
+  }
+
   constructor(private http: HttpClient) {
     this.userSubscription = this.user$.subscribe((user) => {
       this.user = user;
@@ -41,6 +45,18 @@ export class UserService implements OnDestroy {
         confirmPassword,
       })
       .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  getProfile() {
+    return this.http
+      .get<UserForAuth>('/api/users/profile')
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  logout() {
+    return this.http
+      .get('/api/users/logout', {})
+      .pipe(tap(() => this.user$$.next(undefined)));
   }
 
   ngOnDestroy(): void {
