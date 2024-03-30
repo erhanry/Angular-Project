@@ -2,8 +2,6 @@ const Category = require("../models/categoryModel");
 
 exports.create = (newData) => Category.create(newData);
 
-exports.getOne = (id) => Category.findById(id);
-
 exports.getAll = () => Category.find();
 
 exports.update = (Id, newData, ownerId) =>

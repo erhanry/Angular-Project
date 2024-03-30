@@ -50,21 +50,26 @@ exports.logout = async (token) => {
 async function createSession(user) {
     const payload = {
         _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email
     };
 
     const accessToken = await sign(payload, JWT_SECRET, { expiresIn: '2h' });
 
-    return Object.assign(payload, { accessToken });
+    return Object.assign({ payload }, { accessToken });
 }
 
 exports.getProfile = (id) =>
     User.findById(id).select('-password').populate('createdBooks');
 
+exports.getMe = (id) =>
+    User.findById(id).select({ "_id": 1, "firstName": 1, "lastName": 1, "email": 1 });
 
 exports.validateToken = async (accessToken) => {
     if (blacklist.has(accessToken)) {
         throw new Error('Token is blacklisted');
     }
+
     return await verify(accessToken, JWT_SECRET);
 };
