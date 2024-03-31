@@ -1,20 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SidebarService } from 'src/app/shared/sidebar.service';
 import { UserService } from 'src/app/user/user.service';
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isToggleNavbar: boolean = false;
+  isToggleSearch: boolean = false;
+  errorMsg = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private errorService: ErrorService,
+    private router: Router
+  ) {}
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
+  }
+  get username() {
+    return this.userService.user;
+  }
+
+  ngOnInit(): void {
+    this.errorService.apiError$.subscribe((message: string | null) => {
+      this.errorMsg = message || '';
+      this.isToggleSearch = false;
+    });
   }
 
   logout() {
@@ -30,5 +46,10 @@ export class HeaderComponent {
 
   showNavbar() {
     this.isToggleNavbar = !this.isToggleNavbar;
+  }
+
+  showSearch() {
+    this.errorMsg = '';
+    this.isToggleSearch = !this.isToggleSearch;
   }
 }

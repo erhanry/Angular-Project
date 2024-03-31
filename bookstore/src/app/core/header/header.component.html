@@ -16,7 +16,7 @@
                     <i class="fa fa-align-justify"></i>
                 </button>
                 <button type="button" data-target="#search" class="btn btn-outline-secondary navbar-toggler"
-                    aria-expanded="true"><span class="sr-only">Toggle
+                    (click)="showSearch()"><span class="sr-only">Toggle
                         search</span><i class="fa fa-search"></i></button>
             </div>
             <div id="navigation" class="collapse navbar-collapse" [class.show]="isToggleNavbar">
@@ -52,16 +52,16 @@
                 </ul>
                 <div class="navbar-buttons d-flex justify-content-end">
                     <div id="search-not-mobile" class="navbar-collapse collapse"></div>
-                    <a href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block" aria-expanded="true">
+                    <button class="btn navbar-btn btn-primary d-none d-lg-inline-block" (click)="showSearch()">
                         <span class="sr-only">Toggle search</span><i class="fa fa-search"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
-    <div id="search" class="collapse show">
+    <div class="navbar_bottom" *ngIf="isToggleSearch">
         <div class="container">
-            <form role="search" class="ml-auto">
+            <form class="ml-auto">
                 <div class="input-group">
                     <input type="text" placeholder="Search" class="form-control">
                     <div class="input-group-append">
@@ -69,6 +69,11 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="navbar_bottom" *ngIf="errorMsg">
+        <div class="container notification">
+            {{ errorMsg }}
         </div>
     </div>
 </header>
