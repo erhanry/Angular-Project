@@ -1,3 +1,23 @@
+<ng-container *ngIf="confirmModal">
+    <div tabIndex="-1" class="modal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Желаете ли да изтриете книгата?</h5>
+                    <button class="close" onClick={closeModal}>×</button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">
+                        <button class="btn btn-outline-secondary" (click)="closeModal()"> Откас</button>
+                        <button class="btn btn-outline-danger" (click)="geleteBook()"><i class="fa fa-trash"></i>
+                            Delete</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop"></div>
+</ng-container>
 <div class="row">
     <app-breadcrumb class="col-lg-12" currentPage="Детайл" />
     <app-sidebar class="col-lg-3" />
@@ -57,12 +77,15 @@
                     <blockquote>
                         <p><em>{{book.description}}</em></p>
                     </blockquote>
-                    <hr />
-                    <p class="text-center buttons">
-                        <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete</button>
-                        <!-- <button class="btn btn-outline-danger" onClick={openModal}><i class="fa fa-trash"></i> Delete</button> -->
-                    </p>
+                    <ng-container *ngIf="isOwner">
+                        <hr />
+                        <p class="text-center buttons">
+                            <button class="btn btn-primary" (click)="editBook()"><i class="fa fa-edit"></i>
+                                Edit</button>
+                            <button class="btn btn-outline-danger" (click)="showModal()"><i class="fa fa-trash"></i>
+                                Delete</button>
+                        </p>
+                    </ng-container>
                 </div>
             </div>
         </div>

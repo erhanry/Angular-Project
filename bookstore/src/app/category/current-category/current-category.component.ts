@@ -21,6 +21,10 @@ export class CurrentCategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getBoook();
+  }
+
+  getBoook() {
     this.categorys = this.sidebarService.categorys!;
     this.activeRoute.params.subscribe((data) => {
       const selectedCategory = this.categorys.find(

@@ -9,9 +9,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title">Наименование</label>
-                                <input type="text" class="form-control" id="title" name="title" ngModel
-                                    #inputTitle="ngModel" required minlength="3"
-                                    [class.is-invalid]="inputTitleValid.css" />
+                                <input type="text" class="form-control" id="title" name="title" ngModel #title="ngModel"
+                                    required minlength="3" [class.is-invalid]="inputTitleValid.css" />
                                 <ng-container *ngIf="inputTitleValid.touched ">
                                     <p class="invalid-feedback" *ngIf="inputTitleValid.required">Моля въведете
                                         наименование!</p>
@@ -27,7 +26,7 @@
                             <div class="form-group">
                                 <label for="author">Автор</label>
                                 <input type="text" class="form-control" id="author" name="author" ngModel
-                                    #inputAuthor="ngModel" required minlength="3"
+                                    #author="ngModel" required minlength="3"
                                     [class.is-invalid]="inputAuthorValid.css" />
                                 <ng-container *ngIf="inputAuthorValid.touched ">
                                     <p class="invalid-feedback" *ngIf="inputAuthorValid.required">Моля въведете
@@ -41,7 +40,7 @@
                             <div class="form-group">
                                 <label for="publisher">Издателство</label>
                                 <input type="text" class="form-control" id="publisher" name="publisher" ngModel
-                                    #inputPublisher="ngModel" required minlength="3"
+                                    #publisher="ngModel" required minlength="3"
                                     [class.is-invalid]="inputPublisherValid.css" />
                                 <ng-container *ngIf="inputPublisherValid.touched ">
                                     <p class="invalid-feedback" *ngIf="inputPublisherValid.required">Моля въведете
@@ -57,7 +56,7 @@
                             <div class="form-group">
                                 <label for="price">Цена</label>
                                 <input type="number" class="form-control" id="price" name="price" ngModel
-                                    #inputPrice="ngModel" required min="0" [class.is-invalid]="inputPriceValid.css" />
+                                    #price="ngModel" required min="0" [class.is-invalid]="inputPriceValid.css" />
                                 <ng-container *ngIf="inputPriceValid.touched ">
                                     <p class="invalid-feedback" *ngIf="inputPriceValid.required">Моля въведете валидна
                                         цена!</p>
@@ -70,7 +69,7 @@
                             <div class="form-group">
                                 <label for="year">Година на издаване</label>
                                 <input type="number" class="form-control" id="year" name="year" ngModel
-                                    placeholder="2024" #inputYear="ngModel" required min="1950" max="2050"
+                                    placeholder="2024" #year="ngModel" required min="1950" max="2050"
                                     [class.is-invalid]="inputYearValid.css" />
                                 <ng-container *ngIf="inputYearValid.touched ">
                                     <p class="invalid-feedback" *ngIf="inputYearValid.required">Моля въведете валидна
@@ -86,7 +85,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="category">Категория</label>
-                                <select class="form-control" id="category" name="category" ngModel>
+                                <select class="form-control" id="category" name="category" ngModel required>
                                     <option *ngFor="let category of categorys" value="{{category._id}}">
                                         {{category.title}}</option>
 
@@ -96,7 +95,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="language">Език</label>
-                                <select class="form-control" id="language" name="language" ngModel>
+                                <select class="form-control" id="language" name="language" ngModel required>
                                     <option defaultValue="Български">Български</option>
                                     <option defaultValue="Английски">Английски</option>
                                 </select>
@@ -107,7 +106,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="news">Нова</label>
-                                <select class="form-control" id="news" name="news" ngModel>
+                                <select class="form-control" id="news" name="news" ngModel required>
                                     <option [ngValue]="true">Да</option>
                                     <option [ngValue]="false">Не</option>
                                 </select>
@@ -116,7 +115,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="sale">Налична</label>
-                                <select class="form-control" id="sale" name="sale" ngModel>
+                                <select class="form-control" id="sale" name="sale" ngModel required>
                                     <option [ngValue]="true">Да</option>
                                     <option [ngValue]="false">Не</option>
                                 </select>
@@ -157,7 +156,8 @@
                 <div class="box-footer d-flex justify-content-between">
                     <button class="btn btn-outline-secondary" (click)="createForm.reset()"><i class="fa fa-refresh"></i>
                         Изчисти</button>
-                    <button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Изпрати</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid"> <i
+                            class="fa fa-save"></i> Изпрати</button>
                 </div>
             </form>
         </div>
