@@ -65,11 +65,23 @@
     </nav>
     <div class="navbar_bottom" *ngIf="isToggleSearch">
         <div class="container">
-            <form class="ml-auto">
+            <form class="ml-auto" [formGroup]="searchForm" (ngSubmit)="searchHandler()">
                 <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <select class="form-control" name="select" formControlName="select">
+                            <option value="title">Наименование</option>
+                            <option value="author">Автор</option>
+                            <option value="publisher">Издателство</option>
+                            <option value="year">Година на издаване</option>
+                            <option value="language">Език</option>
+                            <option value="description">Описание</option>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control" formControlName="search" name="search"
+                        [class.is-invalid]="isSearchdValid.css" autocomplete="on" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" [disabled]="searchForm.invalid"><i
+                                class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>

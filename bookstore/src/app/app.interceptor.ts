@@ -33,6 +33,7 @@ export class AppInterceptor implements HttpInterceptor {
         if (err.status === 401) {
           this.errorService.setError(err?.error?.message[0]);
         } else if (err.status === 404) {
+          this.router.navigate(['/home']);
           this.errorService.setError(err?.error?.message);
         } else {
           this.errorService.setError(err);

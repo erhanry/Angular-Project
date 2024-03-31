@@ -12,7 +12,12 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AuthenticateComponent, NotFoundComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AuthenticateComponent,
+    NotFoundComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
