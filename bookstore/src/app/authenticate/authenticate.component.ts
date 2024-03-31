@@ -20,17 +20,21 @@ export class AuthenticateComponent implements OnInit {
   }
 
   setProfile() {
-    this.userService.getProfile().subscribe({
-      next: () => {
-        this.isAuthenticating = false;
-      },
-      error: () => {
-        this.isAuthenticating = false;
-      },
-      complete: () => {
-        this.isAuthenticating = false;
-      },
-    });
+    const cookie = document.cookie.split('=').includes('auth-cookie');
+
+    if (cookie) {
+      this.userService.getMe().subscribe({
+        next: () => {
+          this.isAuthenticating = false;
+        },
+        error: () => {
+          this.isAuthenticating = false;
+        },
+        complete: () => {
+          this.isAuthenticating = false;
+        },
+      });
+    }
   }
 
   setCategory() {
