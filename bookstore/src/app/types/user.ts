@@ -1,3 +1,5 @@
+import { Book } from './books';
+
 export interface UserForAuth {
   _id: string;
   firstName: string;
@@ -10,7 +12,7 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
-  createdBooks: string[];
+  createdBooks: Book[];
   createdAt: string;
   updatedAt: string;
 }
