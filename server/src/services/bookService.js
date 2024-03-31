@@ -1,4 +1,5 @@
 const Book = require("../models/bookModel");
+const User = require("../models/userModel");
 
 exports.getAll = () => Book.find();
 
@@ -10,7 +11,13 @@ exports.getOneDetailed = (id) => this.getOne(id).populate('owner', { password: 0
 
 exports.getCategory = (categoryId) => Book.find({ category: categoryId }).sort({ createdAt: -1 });
 
-exports.create = (newData) => Book.create(newData);
+exports.create = async (newData) => {
+    const createdBook = await Book.create(newData);
+
+    await User.findByIdAndUpdate(newData.owner, { $push: { createdBooks: createdBook._id } });
+
+    return createdBook;
+};
 
 exports.update = (Id, newData, ownerId) =>
     Book.findByIdAndUpdate(Id, newData, { new: true, runValidators: true }).where("owner").equals(ownerId);
