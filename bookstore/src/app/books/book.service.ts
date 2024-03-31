@@ -22,6 +22,10 @@ export class BookService {
     return this.http.post<Book>('/api/books', { ...newBook });
   }
 
+  editBook(id: string, newBook: Book) {
+    return this.http.put<Book>(`/api/books/${id}`, { ...newBook });
+  }
+
   deleteBook(id: string) {
     return this.http.delete<Book>(`/api/books/${id}`);
   }

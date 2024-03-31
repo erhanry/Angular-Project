@@ -1,9 +1,9 @@
 <div class="row">
-    <app-breadcrumb class="col-lg-12" currentPage="Нова Книга" />
+    <app-breadcrumb class="col-lg-12" [currentPage]="pageTitle" />
     <app-sidebar class="col-lg-3" />
     <div id="checkout" class="col-lg-9">
         <div class="box">
-            <form #createForm="ngForm" (ngSubmit)="createSubmit(createForm)">
+            <form #form="ngForm" (ngSubmit)="submitForm(form)">
                 <div class="content py-3">
                     <div class="row">
                         <div class="col-md-12">
@@ -115,7 +115,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="sale">Налична</label>
-                                <select class="form-control" id="sale" name="sale" ngModel required>
+                                <select class="form-control" id="sale" name="sale" ngModel>
                                     <option [ngValue]="true">Да</option>
                                     <option [ngValue]="false">Не</option>
                                 </select>
@@ -154,10 +154,10 @@
                     </div>
                 </div>
                 <div class="box-footer d-flex justify-content-between">
-                    <button class="btn btn-outline-secondary" (click)="createForm.reset()"><i class="fa fa-refresh"></i>
+                    <button class="btn btn-outline-secondary" (click)="form.reset()"><i class="fa fa-refresh"></i>
                         Изчисти</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid"> <i
-                            class="fa fa-save"></i> Изпрати</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="form.invalid"> <i class="fa fa-save"></i>
+                        Изпрати</button>
                 </div>
             </form>
         </div>

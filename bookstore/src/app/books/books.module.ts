@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BooksRoutingModule } from './books-routing.module';
-import { EditBookComponent } from './edit-book/edit-book.component';
-import { CreateBookComponent } from './create-book/create-book.component';
+import { CreateEditBookComponent } from './create-edit-book/create-edit-book.component';
 import { CatalogBookComponent } from './catalog-book/catalog-book.component';
 import { CurrentBookComponent } from './current-book/current-book.component';
 import { SharedModule } from '../shared/shared.module';
@@ -13,8 +12,7 @@ import { ImageDirective } from './directive/image.directive';
 
 @NgModule({
   declarations: [
-    EditBookComponent,
-    CreateBookComponent,
+    CreateEditBookComponent,
     CatalogBookComponent,
     CurrentBookComponent,
     ImageDirective,

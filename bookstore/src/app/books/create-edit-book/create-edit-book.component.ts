@@ -1,24 +1,65 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookService } from '../book.service';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/types/books';
 import { Category } from 'src/app/types/category';
+import { first } from 'rxjs';
+import { SidebarService } from 'src/app/shared/sidebar.service';
 
 @Component({
-  selector: 'app-create-book',
-  templateUrl: './create-book.component.html',
-  styleUrls: ['./create-book.component.css'],
+  selector: 'app-create-edit-book',
+  templateUrl: './create-edit-book.component.html',
+  styleUrls: ['./create-edit-book.component.css'],
 })
-export class CreateBookComponent {
+export class CreateEditBookComponent implements OnInit {
   categorys = [] as Category[];
+  pageTitle = 'Нова Книга';
+  bookId = '';
 
-  constructor(private bookService: BookService, private router: Router) {}
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private sidebarService: SidebarService,
+    private route: ActivatedRoute
+  ) {}
 
-  @ViewChild('createForm') createForm: NgForm | undefined;
+  @ViewChild('form') form: NgForm | undefined;
 
-  createSubmit(createForm: NgForm) {
-    if (createForm.invalid) {
+  ngOnInit(): void {
+    this.categorys = this.sidebarService.categorys!;
+    this.setValue();
+  }
+
+  setValue() {
+    this.bookId = this.route.snapshot.params['bookId'];
+
+    if (this.bookId) {
+      this.pageTitle = 'Редакция';
+
+      this.bookService
+        .getBook(this.bookId)
+        .pipe(first())
+        .subscribe((data) => {
+          this.form?.setValue({
+            title: data.title,
+            author: data.author,
+            publisher: data.publisher,
+            price: data.price,
+            year: data.year,
+            category: data.category._id,
+            language: data.language,
+            news: data.news,
+            sale: data.sale,
+            imgUrl: data.imgUrl,
+            description: data.description,
+          });
+        });
+    }
+  }
+
+  submitForm(form: NgForm) {
+    if (form.invalid) {
       return;
     }
 
@@ -34,7 +75,7 @@ export class CreateBookComponent {
       news,
       imgUrl,
       description,
-    } = createForm.value;
+    } = form.value;
 
     const newBook = {
       title,
@@ -50,13 +91,19 @@ export class CreateBookComponent {
       description,
     } as Book;
 
-    this.bookService.createBook(newBook).subscribe(() => {
-      this.router.navigate(['/books']);
-    });
+    if (this.bookId) {
+      this.bookService.editBook(this.bookId, newBook).subscribe(() => {
+        this.router.navigate(['/books', this.bookId]);
+      });
+    } else {
+      this.bookService.createBook(newBook).subscribe(() => {
+        this.router.navigate(['/books']);
+      });
+    }
   }
 
   get inputTitleValid() {
-    const field = this.createForm?.control.get('title');
+    const field = this.form?.control.get('title');
 
     const Obj = {
       touched: false,
@@ -76,7 +123,7 @@ export class CreateBookComponent {
   }
 
   get inputAuthorValid() {
-    const field = this.createForm?.control.get('author');
+    const field = this.form?.control.get('author');
 
     const Obj = {
       touched: false,
@@ -96,7 +143,7 @@ export class CreateBookComponent {
   }
 
   get inputPublisherValid() {
-    const field = this.createForm?.control.get('publisher');
+    const field = this.form?.control.get('publisher');
 
     const Obj = {
       touched: false,
@@ -116,7 +163,7 @@ export class CreateBookComponent {
   }
 
   get inputPriceValid() {
-    const field = this.createForm?.control.get('price');
+    const field = this.form?.control.get('price');
 
     const Obj = {
       touched: false,
@@ -135,7 +182,7 @@ export class CreateBookComponent {
     return Obj;
   }
   get inputYearValid() {
-    const field = this.createForm?.control.get('year');
+    const field = this.form?.control.get('year');
 
     const Obj = {
       touched: false,
@@ -155,7 +202,7 @@ export class CreateBookComponent {
   }
 
   get inputImgUrlValid() {
-    const field = this.createForm?.control.get('imgUrl');
+    const field = this.form?.control.get('imgUrl');
 
     const Obj = {
       dirty: false,
@@ -172,7 +219,7 @@ export class CreateBookComponent {
     return Obj;
   }
   get descriptionValid() {
-    const field = this.createForm?.control.get('description');
+    const field = this.form?.control.get('description');
 
     const Obj = {
       touched: false,

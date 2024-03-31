@@ -42,11 +42,10 @@ export class CurrentBookComponent implements OnInit {
     return this.book?.createdAt != this.book?.updatedAt;
   }
 
-  editBook() {}
-
   showModal() {
     this.confirmModal = true;
   }
+
   closeModal() {
     this.confirmModal = false;
   }
