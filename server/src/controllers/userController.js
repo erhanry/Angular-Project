@@ -10,7 +10,7 @@ userController.post('/register', async (req, res) => {
     const userData = req.body;
 
     try {
-        const result = await api.login(userData);
+        const result = await api.register(userData);
         res.cookie(AUTH_COOKIE_NAME, result.accessToken);
         res.status(200).json(result.payload);
     } catch (err) {
