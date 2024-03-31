@@ -181,24 +181,7 @@ body {
     color: #fff;
     margin-right: 10px;
   }
-  
-  #search {
-    background: #fff;
-  }
-  
-  #search .container {
-    text-align: right;
-  }
-  
-  #search form {
-    max-width: 500px;
-    padding: 20px 0;
-  }
-  
-  #search .navbar-form {
-    float: right;
-    width: 500px;
-  }
+
   
   /*
   *
@@ -2596,14 +2579,6 @@ body {
   
   .custom-radio .custom-control-input:disabled:checked~.custom-control-label::before {
     background-color: rgba(79, 191, 168, 0.5);
-  }
-  
-  /*
-  * 7.CODE
-  */
-  code {
-    font-size: 87.5%;
-    color: #e83e8c;
   }
      
   /*

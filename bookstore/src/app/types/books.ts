@@ -1,3 +1,6 @@
+import { Category } from './category';
+import { User } from './user';
+
 export interface Book {
   _id: string;
   title: string;
@@ -5,13 +8,13 @@ export interface Book {
   publisher: string;
   language: string;
   year: number;
-  category: string;
+  category: Category;
   price: number;
   imgUrl: string;
   sale: boolean;
   news: boolean;
   description: string;
-  owner: string;
+  owner: User;
   createdAt: string;
   updatedAt: string;
 }
