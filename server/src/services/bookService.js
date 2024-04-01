@@ -24,6 +24,14 @@ exports.update = (Id, newData, ownerId) =>
 
 exports.delete = (Id, ownerId) => Book.findByIdAndDelete(Id).where("owner").equals(ownerId);
 
+exports.bought = async (bookId, userId) => {
+    const boughtBook = await Book.findByIdAndUpdate(bookId, { $push: { bought: userId }, sale: false }, { new: true, runValidators: true }).where("bought").ne(userId).where("owner").ne(userId);
+
+    await User.findByIdAndUpdate(userId, { $push: { boughtBooks: boughtBook._id } });
+
+    return boughtBook;
+};
+
 exports.search = ({ title, author, publisher, language, year, description }) => {
     const searchBooks = Book.find();
     const regex = (x) => new RegExp(x, "i");

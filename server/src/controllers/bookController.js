@@ -108,6 +108,19 @@ bookController.get('/category/:id', async (req, res) => {
     }
 });
 
+bookController.put('/bought/:id', isAuth(), async (req, res) => {
+    const bookId = req.params.id;
+    const userId = req.user._id;
+    console.log(bookId, userId);
+    try {
+        const result = await api.bought(bookId, userId);
+
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(400).json({ message: 'Request error' });
+    }
+});
+
 bookController.put('/:id', isAuth(), isOwner(), async (req, res) => {
     const newData = req.body;
     const oldData = req.book;
@@ -117,7 +130,6 @@ bookController.put('/:id', isAuth(), isOwner(), async (req, res) => {
 
         res.status(200).json(result);
     } catch (err) {
-        console.error(err);
         res.status(400).json({ message: 'Request error' });
     }
 });

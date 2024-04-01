@@ -53,7 +53,6 @@ categoryController.put('/:id', isAuth(), isOwner(), async (req, res) => {
 
         res.status(200).json(result);
     } catch (err) {
-        console.error(err);
         res.status(400).json({ message: 'Request error' });
     }
 });

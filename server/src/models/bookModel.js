@@ -62,7 +62,11 @@ const bookSchema = new Schema({
         type: ObjectId,
         required: [true, 'Owner is required'],
         ref: 'User'
-    }
+    },
+    bought: [{
+        type: ObjectId,
+        ref: 'User',
+    }],
 }, { timestamps: true });
 
 const Book = model('Book', bookSchema);

@@ -30,6 +30,10 @@ const userSchema = new Schema({
         type: ObjectId,
         ref: 'Book',
     }],
+    boughtBooks: [{
+        type: ObjectId,
+        ref: 'Book',
+    }],
 }, { timestamps: true });
 
 // hash password

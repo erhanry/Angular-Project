@@ -61,7 +61,7 @@ async function createSession(user) {
 }
 
 exports.getProfile = (id) =>
-    User.findById(id).select('-password').populate('createdBooks');
+    User.findById(id).select('-password').populate('createdBooks').populate('boughtBooks');
 
 exports.getMe = (id) =>
     User.findById(id).select({ "_id": 1, "firstName": 1, "lastName": 1, "email": 1 });
