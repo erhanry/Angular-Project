@@ -1,0 +1,79 @@
+[{
+  "_id": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "firstName": "Erhan",
+  "lastName": "Ysuf",
+  "email": "erhan.ysuf@gmail.com",
+  "password": "$2b$10$qCIluGHu7vmPxZFA1jXdbewU4Yomqub/MmR90a7LRa/aLquoiBRQO",
+  "createdBooks": [
+    {
+      "$oid": "660adcc629cdc201eca6f073"
+    },
+    {
+      "$oid": "660adcdb29cdc201eca6f076"
+    },
+    {
+      "$oid": "660add4629cdc201eca6f079"
+    },
+    {
+      "$oid": "660add6f29cdc201eca6f07c"
+    },
+    {
+      "$oid": "660addbf29cdc201eca6f07f"
+    },
+    {
+      "$oid": "660addf229cdc201eca6f082"
+    },
+    {
+      "$oid": "660ade5b29cdc201eca6f085"
+    },
+    {
+      "$oid": "660ade9929cdc201eca6f088"
+    },
+    {
+      "$oid": "660adedb29cdc201eca6f08b"
+    },
+    {
+      "$oid": "660adf1029cdc201eca6f08e"
+    },
+    {
+      "$oid": "660adf4429cdc201eca6f091"
+    },
+    {
+      "$oid": "660adf6629cdc201eca6f094"
+    },
+    {
+      "$oid": "660adf9729cdc201eca6f097"
+    },
+    {
+      "$oid": "660adfcf29cdc201eca6f09a"
+    }
+  ],
+  "boughtBooks": [],
+  "createdAt": {
+    "$date": "2024-04-01T16:07:33.104Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:07:33.104Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660b1ea0bf854c563a19299b"
+  },
+  "firstName": "Name",
+  "lastName": "Surname",
+  "email": "test@gmail.com",
+  "password": "$2b$10$EBUAqFTQdMc39bDkSAS2T./wyTk8SQnfVDPWB0hvKXiTPYIPwiF5K",
+  "createdBooks": [],
+  "boughtBooks": [],
+  "createdAt": {
+    "$date": "2024-04-01T20:52:48.158Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T20:52:48.158Z"
+  },
+  "__v": 0
+}]

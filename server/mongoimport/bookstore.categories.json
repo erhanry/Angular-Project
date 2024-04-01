@@ -1,0 +1,119 @@
+[{
+  "_id": {
+    "$oid": "660adc1e29cdc201eca6f062"
+  },
+  "title": "Бази данни",
+  "path": "database",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:02.001Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:02.001Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660adc2829cdc201eca6f064"
+  },
+  "title": "Дизайн",
+  "path": "design",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:12.113Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:12.113Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660adc3129cdc201eca6f066"
+  },
+  "title": "Програмиране",
+  "path": "programming",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:21.100Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:21.100Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660adc3929cdc201eca6f068"
+  },
+  "title": "Уеб Разработки",
+  "path": "development",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:29.193Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:29.193Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660adc4229cdc201eca6f06a"
+  },
+  "title": "Мрежи",
+  "path": "networks",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:38.179Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:38.179Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660adc4a29cdc201eca6f06c"
+  },
+  "title": "Операцинни системи",
+  "path": "operating-system",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:46.888Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:46.888Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660adc5429cdc201eca6f06e"
+  },
+  "title": "CAD системи",
+  "path": "cad-systems",
+  "owner": {
+    "$oid": "660adbc529cdc201eca6f060"
+  },
+  "createdAt": {
+    "$date": "2024-04-01T16:09:56.056Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T16:09:56.056Z"
+  },
+  "__v": 0
+}]
