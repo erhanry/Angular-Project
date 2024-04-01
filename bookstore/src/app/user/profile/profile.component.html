@@ -5,8 +5,10 @@
         <div class="box">
             <h3><i class="fa fa-user"></i> {{user?.firstName}} {{user?.lastName}}</h3>
             <h4><i class="fa fa-envelope"></i> {{user?.email?.replace("@", '/@/')}}</h4>
-            <p class="lead"><i class="fa fa-book"></i> Вие сте автор на <strong>{{counter()[0]}}</strong>
-                {{counter()[1]}}.</p>
+            <p class="lead"><i class="fa fa-book"></i> Вие сте публикували
+                <strong>{{user?.createdBooks?.length}}</strong>
+                {{tailString(user?.createdBooks?.length!)}}.
+            </p>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -26,7 +28,41 @@
                             <td>{{book.createdAt | date:"dd.MM.yy HH:mm"}}</td>
                             <td>{{book.updatedAt | date:"dd.MM.yy HH:mm"}}</td>
                         </tr>
+                        <tr *ngIf="!user?.createdBooks?.length">
+                            <td colspan="5" class="text-center">Нямате публикувани книги!</td>
+                        </tr>
                     </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="box">
+            <p class="lead"><i class="fa fa-book"></i> Вие сте купили <strong>{{user?.boughtBooks?.length}}</strong>
+                {{tailString(user?.boughtBooks?.length!)}}.</p>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Издателство</th>
+                            <th width="120">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let book of user?.boughtBooks">
+                            <td><a [routerLink]="['/books', book._id]">{{book.title }}</a></td>
+                            <td>{{ book.publisher }}</td>
+                            <td width="120">{{book.price | price: 'BGN'}}</td>
+                        </tr>
+                        <tr *ngIf="!user?.boughtBooks?.length">
+                            <td colspan="3" class="text-center">Нямате купени книги!</td>
+                        </tr>
+                    </tbody>
+                    <tfoot *ngIf="user?.boughtBooks?.length">
+                        <tr>
+                            <th colspan="2" class="text-right">Крайна цена</th>
+                            <th width="120">{{totalPrice(user?.boughtBooks!) | price: 'BGN'}}</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

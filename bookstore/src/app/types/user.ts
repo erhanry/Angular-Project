@@ -7,12 +7,13 @@ export interface UserForAuth {
   email: string;
 }
 
-export interface User {
+export interface Profile {
   _id: string;
   firstName: string;
   lastName: string;
   email: string;
   createdBooks: Book[];
+  boughtBooks: Book[];
   createdAt: string;
   updatedAt: string;
 }

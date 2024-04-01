@@ -30,7 +30,9 @@ export class AppInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((err) => {
-        if (err.status === 401) {
+        if (err.status === 0) {
+          this.errorService.setError('Unable to Connect to the Server');
+        } else if (err.status === 401) {
           this.errorService.setError(err?.error?.message[0]);
         } else if (err.status === 404) {
           this.router.navigate(['/home']);

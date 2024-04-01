@@ -47,7 +47,7 @@ export class CreateEditBookComponent implements OnInit {
             publisher: data.publisher,
             price: data.price,
             year: data.year,
-            category: data.category._id,
+            category: data.category,
             language: data.language,
             news: data.news,
             sale: data.sale,

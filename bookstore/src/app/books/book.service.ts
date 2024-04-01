@@ -7,7 +7,7 @@ export class BookService {
   constructor(private http: HttpClient) {}
 
   getBook(id: string) {
-    return this.http.get<Book>(`/api/books/${id}/details`);
+    return this.http.get<Book>(`/api/books/${id}`);
   }
 
   getAllBook() {
@@ -28,6 +28,10 @@ export class BookService {
 
   editBook(id: string, newBook: Book) {
     return this.http.put<Book>(`/api/books/${id}`, { ...newBook });
+  }
+
+  bought(bookId: string, userId: string) {
+    return this.http.put<Book>(`/api/books/bought/${bookId}`, { userId });
   }
 
   deleteBook(id: string) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { User } from 'src/app/types/user';
+import { Profile } from 'src/app/types/user';
+import { Book } from 'src/app/types/books';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +9,7 @@ import { User } from 'src/app/types/user';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  user: User | undefined = undefined;
+  user: Profile | undefined = undefined;
 
   constructor(private userService: UserService) {}
 
@@ -23,10 +24,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  counter() {
-    return [
-      this.user?.createdBooks.length || 0,
-      this.user?.createdBooks.length == 1 ? 'книга' : 'книги',
-    ];
+  tailString(num: number) {
+    return num == 1 ? 'книга' : 'книги';
+  }
+
+  totalPrice(bookList: Book[]) {
+    return bookList.reduce((acc, { price }) => (acc += price), 0);
   }
 }

@@ -1,5 +1,4 @@
 import { Category } from './category';
-import { User } from './user';
 
 export interface Book {
   _id: string;
@@ -14,7 +13,8 @@ export interface Book {
   sale: boolean;
   news: boolean;
   description: string;
-  owner: User;
+  owner: string;
+  bought: string[];
   createdAt: string;
   updatedAt: string;
 }

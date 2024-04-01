@@ -10,7 +10,7 @@
                     <p class="text-center">
                         <button class="btn btn-outline-secondary" (click)="closeModal()"> Откас</button>
                         <button class="btn btn-outline-danger" (click)="geleteBook()"><i class="fa fa-trash"></i>
-                            Delete</button>
+                            Изтриване</button>
                     </p>
                 </div>
             </div>
@@ -82,9 +82,16 @@
                         <p class="text-center buttons">
                             <a [routerLink]="['/books/edit', book._id]" class="btn btn-primary"><i
                                     class="fa fa-edit"></i>
-                                Edit</a>
+                                Редактиране</a>
                             <button class="btn btn-outline-danger" (click)="showModal()"><i class="fa fa-trash"></i>
-                                Delete</button>
+                                Изтриване</button>
+                        </p>
+                    </ng-container>
+                    <ng-container *ngIf="isBought">
+                        <hr />
+                        <p class="text-center buttons">
+                            <button class="btn btn-primary" (click)="getBought()"><i class="fa fa-shopping-cart"></i>
+                                Купи</button>
                         </p>
                     </ng-container>
                 </div>

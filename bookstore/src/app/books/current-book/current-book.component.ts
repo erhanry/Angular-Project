@@ -35,7 +35,23 @@ export class CurrentBookComponent implements OnInit {
   }
 
   get isOwner() {
-    return this.book.owner?._id == this.userService.user?._id;
+    return this.book.owner == this.userService.user?._id;
+  }
+
+  get isBought() {
+    const userId = this.userService?.user?._id;
+
+    if (!userId) {
+      return false;
+    } else if (
+      this.book?.bought &&
+      this.book?.sale &&
+      this.book?.owner != userId
+    ) {
+      return !this.book?.bought.some((id) => id == userId);
+    }
+
+    return false;
   }
 
   get isUpdate() {
@@ -53,6 +69,15 @@ export class CurrentBookComponent implements OnInit {
   geleteBook() {
     this.bookService.deleteBook(this.book._id).subscribe(() => {
       this.router.navigate(['/books']);
+    });
+  }
+
+  getBought() {
+    const bookId = this.book?._id;
+    const userId = this.userService.user?._id;
+
+    this.bookService.bought(bookId, userId!).subscribe((book) => {
+      this.book = book;
     });
   }
 }
