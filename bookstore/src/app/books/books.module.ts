@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BookService } from './book.service';
 import { FormsModule } from '@angular/forms';
 import { ImageDirective } from './directive/image.directive';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ImageDirective } from './directive/image.directive';
     CatalogBookComponent,
     CurrentBookComponent,
     ImageDirective,
+    SearchComponent,
   ],
   imports: [CommonModule, BooksRoutingModule, SharedModule, FormsModule],
   providers: [BookService],

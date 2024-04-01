@@ -4,9 +4,11 @@ import { CreateEditBookComponent } from './create-edit-book/create-edit-book.com
 import { CatalogBookComponent } from './catalog-book/catalog-book.component';
 import { CurrentBookComponent } from './current-book/current-book.component';
 import { authGuard } from '../guard/auth.guard';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CatalogBookComponent },
+  { path: 'search', component: SearchComponent },
   {
     path: 'edit/:bookId',
     component: CreateEditBookComponent,

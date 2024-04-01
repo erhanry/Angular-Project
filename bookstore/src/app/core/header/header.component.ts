@@ -69,7 +69,7 @@ export class HeaderComponent implements OnInit {
     this.searchForm.reset({ select });
 
     this.router.navigate(['/books/search/'], {
-      queryParams: { [select!]: search },
+      queryParams: { [select!]: search?.trim() },
     });
   }
 

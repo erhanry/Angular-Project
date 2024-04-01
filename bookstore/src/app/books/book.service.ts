@@ -14,6 +14,10 @@ export class BookService {
     return this.http.get<Book[]>('/api/books');
   }
 
+  getSearchBook(searchQuery: string) {
+    return this.http.get<Book[]>(`/api/books/search?${searchQuery}`);
+  }
+
   getCategoryBook(id: string) {
     return this.http.get<Book[]>(`/api/books/category/${id}`);
   }
