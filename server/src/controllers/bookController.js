@@ -111,7 +111,7 @@ bookController.get('/category/:id', async (req, res) => {
 bookController.put('/bought/:id', isAuth(), async (req, res) => {
     const bookId = req.params.id;
     const userId = req.user._id;
-    console.log(bookId, userId);
+
     try {
         const result = await api.bought(bookId, userId);
 

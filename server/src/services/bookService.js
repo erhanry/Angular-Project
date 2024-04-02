@@ -22,7 +22,14 @@ exports.create = async (newData) => {
 exports.update = (Id, newData, ownerId) =>
     Book.findByIdAndUpdate(Id, newData, { new: true, runValidators: true }).where("owner").equals(ownerId);
 
-exports.delete = (Id, ownerId) => Book.findByIdAndDelete(Id).where("owner").equals(ownerId);
+exports.delete = async (Id, ownerId) => {
+
+    const deletedBook = await Book.findByIdAndDelete(Id).where("owner").equals(ownerId);
+    const boughtBooks = await User.updateMany({ "boughtBooks": deletedBook._id }, { $pull: { "boughtBooks": Id } });
+    const createdBooks = await User.updateMany({ "createdBooks": deletedBook._id }, { $pull: { "createdBooks": Id } });
+
+    return { deletedBook, createdBooks, boughtBooks };
+};
 
 exports.bought = async (bookId, userId) => {
     const boughtBook = await Book.findByIdAndUpdate(bookId, { $push: { bought: userId }, sale: false }, { new: true, runValidators: true }).where("bought").ne(userId).where("owner").ne(userId);
