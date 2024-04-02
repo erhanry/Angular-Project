@@ -1,6 +1,6 @@
 import { Book } from './books';
 
-export interface UserForAuth {
+export interface User {
   _id: string;
   firstName: string;
   lastName: string;

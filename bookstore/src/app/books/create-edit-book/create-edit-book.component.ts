@@ -10,7 +10,6 @@ import { SidebarService } from 'src/app/shared/sidebar.service';
 @Component({
   selector: 'app-create-edit-book',
   templateUrl: './create-edit-book.component.html',
-  styleUrls: ['./create-edit-book.component.css'],
 })
 export class CreateEditBookComponent implements OnInit {
   categorys = [] as Category[];

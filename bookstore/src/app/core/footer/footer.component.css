@@ -1,65 +1,65 @@
 footer {
-	background: #e0e0e0;
-	padding: 40px 0;
+  background: #e0e0e0;
+  padding: 40px 0;
 }
 
 footer ul {
-	padding-left: 0;
-	list-style: none;
+  padding-left: 0;
+  list-style: none;
 }
 
 footer ul a {
-	color: #999;
+  color: #999;
 }
 
 .social {
-	text-align: left;
+  text-align: left;
 }
 
 .social a {
-	margin: 0 10px 0 0;
-	color: #fff;
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	border-radius: 15px;
-	line-height: 26px;
-	font-size: 15px;
-	text-align: center;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
-	vertical-align: bottom;
-	background-color: #555;
+  margin: 0 10px 0 0;
+  color: #fff;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  line-height: 26px;
+  font-size: 15px;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  vertical-align: bottom;
+  background-color: #555;
 }
 
 .social a i {
-	vertical-align: bottom;
-	line-height: 30px;
+  vertical-align: bottom;
+  line-height: 30px;
 }
 
 .social .facebook:hover {
-	background-color: #4460ae
+  background-color: #4460ae;
 }
 
 .social .linkedin:hover {
-	background-color: #0072b1;
+  background-color: #0072b1;
 }
 
 .social .twitter:hover {
-	background-color: #3cf;
+  background-color: #3cf;
 }
 
 .social .instagram:hover {
-	background-color: #cd4378;
+  background-color: #cd4378;
 }
 
 #copyright {
-	background: #333;
-	color: #ccc;
-	padding: 20px 0;
-	font-size: 0.738rem;
+  background: #333;
+  color: #ccc;
+  padding: 20px 0;
+  font-size: 0.738rem;
 }
 
 #copyright p {
-	margin: 0;
+  margin: 0;
 }

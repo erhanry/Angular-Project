@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
-import { Profile, UserForAuth } from '../types/user';
+import { Profile, User } from '../types/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService implements OnDestroy {
-  private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
+  private user$$ = new BehaviorSubject<User | undefined>(undefined);
   private user$ = this.user$$.asObservable();
 
-  user: UserForAuth | undefined;
+  user: User | undefined;
   userSubscription: Subscription;
 
   get isLogged(): boolean {
@@ -25,7 +25,7 @@ export class UserService implements OnDestroy {
 
   login(email: string, password: string) {
     return this.http
-      .post<UserForAuth>('/api/users/login', { email, password })
+      .post<User>('/api/users/login', { email, password })
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
@@ -37,7 +37,7 @@ export class UserService implements OnDestroy {
     confirmPassword: string
   ) {
     return this.http
-      .post<UserForAuth>('/api/users/register', {
+      .post<User>('/api/users/register', {
         firstName,
         lastName,
         email,
@@ -49,7 +49,7 @@ export class UserService implements OnDestroy {
 
   getMe() {
     return this.http
-      .get<UserForAuth>('/api/users/me')
+      .get<User>('/api/users/me')
       .pipe(tap((user) => this.user$$.next(user)));
   }
 

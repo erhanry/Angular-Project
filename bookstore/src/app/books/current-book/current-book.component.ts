@@ -68,7 +68,7 @@ export class CurrentBookComponent implements OnInit {
 
   geleteBook() {
     this.bookService.deleteBook(this.book._id).subscribe(() => {
-      this.router.navigate(['/books']);
+      this.router.navigate(['/auth/profile']);
     });
   }
 
