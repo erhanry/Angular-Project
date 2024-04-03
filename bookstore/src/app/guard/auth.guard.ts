@@ -12,3 +12,13 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
   return auth.isLogged;
 };
+
+export const guestGuard: CanActivateFn = (route, state) => {
+  const auth = inject(UserService);
+  const router = inject(Router);
+
+  if (auth.isLogged) {
+    router.navigate(['/home']);
+  }
+  return !auth.isLogged;
+};
