@@ -51,8 +51,10 @@ export class ProfileComponent implements OnInit {
 
 ### APP Structure
 
+<div>
 <img src="screenshots/APP Structure/img1.png" alt="APP Structure 1" align="top" width="250" height="800">
 <img src="screenshots/APP Structure/img2.png" alt="APP Structure 2" align="top" width="250" height="800" style="margin-left: 30px">
+</div>
 
 \
 &nbsp;
