@@ -1,0 +1,9 @@
+{
+  "title": "MongoDB - нерелационни бази данни",
+  "author": "D.K. Academy",
+  "publisher": "Асеневци",
+  "year": 2023,
+  "price": 19.95,
+  "imgUrl": "http://localhost:4200/assets/img/mongodb-asenevtci.jpg",
+  "description": "MongoDB е една от най-популярните системи за управление на нерелационни бази данни. Налична е както като облачна услуга (MongoDB Atlas), така и за различни платформи – Windows, Linux, MacOS, Solaris."
+}
